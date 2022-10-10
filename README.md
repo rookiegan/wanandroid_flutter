@@ -1,16 +1,8 @@
-# wanandroid_flutter
 
-A new Flutter project.
+# 编译步骤
+1. flutter pub get
 
-## Getting Started
+2. Android Studio 安装 Flutter Intl 插件，该插件会自动检测国际化资源是否变动
+    如果lib/generated/路径下仍然无法生成国际化资源，则使用 flutter pub global run intl_utils:generate
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+3. 生成文件: flutter pub run build_runner watch --delete-conflicting-outputs
