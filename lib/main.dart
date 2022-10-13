@@ -1,7 +1,11 @@
+import 'dart:convert';
+
 import 'package:bot_toast/bot_toast.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:wanandroid_flutter/net/http/wan/wan_api.dart';
 import 'dependency.dart';
+import 'net/http/wan/common_response.dart';
 
 void main() {
   _initApp();
@@ -142,10 +146,12 @@ class _MyHomePageState extends State<MyHomePage> {
       floatingActionButton: FloatingActionButton(
         // onPressed: _incrementCounter,
         onPressed: () {
-          S.current.common_server_exception.successToast();
+          wanApi.getBannerArticles().asStream().commit((event) {
+            "event=== ${event.data.length}".d();
+          });
         },
+        child: const Text("Debug="),
         tooltip: 'Increment',
-        child: Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
