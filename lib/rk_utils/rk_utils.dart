@@ -5,6 +5,7 @@ import 'package:flutter/widgets.dart';
 import 'dart:io';
 
 export 'src/ext/index.dart';
+export 'src/rk_kv.dart';
 export 'package:wanandroid_flutter/generated/l10n.dart';
 export 'dart:io';
 export 'package:flutter/material.dart';

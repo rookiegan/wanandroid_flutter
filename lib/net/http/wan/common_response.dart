@@ -28,8 +28,10 @@ class CommonResponse<T> {
 
 @JsonSerializable(genericArgumentFactories: true)
 class PageResponse<T> {
-  int curPage;
+  @JsonKey(defaultValue: [])
   List<T> datas;
+
+  int curPage;
   int offset;
   bool over;
   int pageCount;
@@ -55,5 +57,17 @@ class PageResponse<T> {
 
   Map<String, dynamic> toJson(Object? Function(T value) toJsonT) {
     return _$PageResponseToJson<T>(this, toJsonT);
+  }
+}
+
+extension CommonResponseStreamExt<T> on Stream<CommonResponse<T>> {
+  Stream<T> data() {
+    return this.map((commonResponse) {
+      if (commonResponse.errorCode != 0) {
+        throw commonResponse;
+      }
+
+      return commonResponse.data;
+    });
   }
 }

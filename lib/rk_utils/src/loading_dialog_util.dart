@@ -1,18 +1,19 @@
+import 'package:wanandroid_flutter/rk_utils/src/constant/index.dart';
+
 import 'base_dependency.dart';
 
 class LoadingDialogUtil {
-  static Widget loadingDialogWidget({String str = ""}) {
+  static Widget loadingDialogWidget({String str = "加载中..."}) {
     return Center(
       child: Container(
-        height: 200.sp,
-        width: 200.sp,
+        height: 220.sp,
+        width: 220.sp,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(100.sp),
+          borderRadius: BorderRadius.circular(250.sp),
         ),
         child: CircleAvatar(
-          backgroundImage: AssetImage(
-            "assets/webp/robot_loading_dialog.webp",
-          ),
+          backgroundColor: RkColors.gray,
+          child: Text(str),
         ),
       ),
     );
@@ -31,9 +32,7 @@ class LoadingDialogUtil {
             behavior: HitTestBehavior.translucent,
             child: loadingDialogWidget(),
             onTap: () {
-              if (onClick != null) {
-                onClick();
-              }
+              onClick?.call();
               if (clickClose) {
                 cancelFunc();
               }
@@ -56,9 +55,7 @@ class LoadingDialogUtil {
             behavior: HitTestBehavior.translucent,
             child: widget ?? loadingDialogWidget(),
             onTap: () {
-              if (onClick != null) {
-                onClick();
-              }
+              onClick?.call();
               if (clickClose) {
                 cancelFunc();
               }

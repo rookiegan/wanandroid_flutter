@@ -48,3 +48,4 @@ app.*.map.json
 .fvm
 pubspec.lock
 *.g.dart
+lib/gen/

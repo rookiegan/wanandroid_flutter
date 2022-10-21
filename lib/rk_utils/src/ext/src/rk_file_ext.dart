@@ -1,11 +1,11 @@
 import 'dart:io';
 
 import 'package:convert/convert.dart';
-import 'package:crypto/crypto.dart' as Crypto;
+import 'package:crypto/crypto.dart' as crypto;
 
 extension FileExt on File {
   String md5() {
-    var digest = Crypto.md5.convert(this.readAsBytesSync());
+    var digest = crypto.md5.convert(this.readAsBytesSync());
     return hex.encode(digest.bytes);
   }
 }

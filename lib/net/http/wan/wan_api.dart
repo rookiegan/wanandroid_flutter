@@ -1,9 +1,11 @@
-import 'package:json_annotation/json_annotation.dart';
+import 'package:curl_logger_dio_interceptor/curl_logger_dio_interceptor.dart';
+import 'package:dio/adapter.dart';
 import 'package:retrofit/retrofit.dart';
 import 'package:dio/dio.dart';
-import 'package:wanandroid_flutter/dependency.dart';
 import 'package:wanandroid_flutter/net/http/wan/common_response.dart';
 
+import '../interceptors/net_log_interceptor.dart';
+import '../interceptors/token_interceptor.dart';
 import 'model/model.dart';
 
 part 'wan_api.g.dart';
@@ -17,14 +19,13 @@ Dio _initDio() {
   dio.options..receiveTimeout = 20000;
   dio.options..sendTimeout = 20000;
 
-  dio.interceptors.add(
-    InterceptorsWrapper(
-      onResponse: (Response response, ResponseInterceptorHandler handler) {
-        "onResponse: ${response}".d();
-        handler.next(response);
-      },
-    ),
-  );
+  (dio.httpClientAdapter as DefaultHttpClientAdapter).onHttpClientCreate = (client) {
+    client.badCertificateCallback = (cert, host, port) => true;
+  };
+
+  dio.interceptors.add(TokenInterceptor());
+  dio.interceptors.add(CurlLoggerDioInterceptor(printOnSuccess: true));
+  dio.interceptors.add(NetLogInterceptor());
   return dio;
 }
 

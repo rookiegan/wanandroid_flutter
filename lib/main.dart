@@ -4,6 +4,7 @@ import 'package:bot_toast/bot_toast.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:wanandroid_flutter/net/http/wan/wan_api.dart';
+import 'package:wanandroid_flutter/rk_utils/src/base_dependency.dart';
 import 'dependency.dart';
 import 'net/http/wan/common_response.dart';
 
@@ -146,8 +147,8 @@ class _MyHomePageState extends State<MyHomePage> {
       floatingActionButton: FloatingActionButton(
         // onPressed: _incrementCounter,
         onPressed: () {
-          wanApi.getBannerArticles().asStream().commit((event) {
-            "event=== ${event.data.length}".d();
+          wanApi.getBannerArticles().asStream().delay(Duration(seconds: 2)).data().loadingDialog().commit((event) {
+            "event=== ${event.length}".d();
           });
         },
         child: const Text("Debug="),
