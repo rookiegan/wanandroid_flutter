@@ -1,11 +1,10 @@
 import 'dart:convert';
 
-import 'package:bot_toast/bot_toast.dart';
 
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:wanandroid_flutter/net/http/wan/wan_api.dart';
 import 'package:wanandroid_flutter/rk_utils/src/base_dependency.dart';
 import 'dependency.dart';
+import 'modules/_test/inherited_widget/inherited_widget_test_page.dart';
 import 'net/http/wan/common_response.dart';
 
 void main() {
@@ -62,7 +61,8 @@ class MyApp extends StatelessWidget {
               // is not restarted.
               primarySwatch: Colors.blue,
             ),
-            home: MyHomePage(title: 'Flutter Demo Home Page'),
+            // home: MyHomePage(title: 'Flutter Demo Home Page'),
+            home: InheritedWidgetTestPage(),
           );
         });
   }
