@@ -1,7 +1,9 @@
 import 'package:wanandroid_flutter/dependency.dart';
 
 class InheritedWidgetTestPage extends StatefulWidget {
-  InheritedWidgetTestPage({Key? key}) : super(key: key);
+  const InheritedWidgetTestPage({Key? key}) : super(key: key);
+
+  static final routeName = "/InheritedWidgetTestPage";
 
   @override
   _InheritedWidgetTestPageState createState() => _InheritedWidgetTestPageState();

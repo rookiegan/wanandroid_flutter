@@ -3,22 +3,22 @@ import 'constant/index.dart';
 
 class ToastUtil {
   static void showErrorToast(String tips, {bool crossPage: false}) {
-    _gsbotToast(tips, crossPage: crossPage, toastColor: RkColors.toastColorError);
+    _showToast(tips, crossPage: crossPage, toastColor: RkColors.toastColorError);
   }
 
   static void showSuccessToast(String tips, {bool crossPage: false}) {
-    _gsbotToast(tips, crossPage: crossPage, toastColor: RkColors.toastColorTips);
+    _showToast(tips, crossPage: crossPage, toastColor: RkColors.toastColorTips);
   }
 
   static void showInfoToast(String tips, {bool crossPage: false}) {
-    _gsbotToast(tips, crossPage: crossPage);
+    _showToast(tips, crossPage: crossPage);
   }
 
   static void showBottomToast(String tips, {bool crossPage: false}) {
-    _gsbotBottomToast(tips, crossPage: crossPage);
+    _showBottomToast(tips, crossPage: crossPage);
   }
 
-  static void _gsbotToast(String tips, {bool crossPage: false, Color toastColor: RkColors.toastColorInfo}) {
+  static void _showToast(String tips, {bool crossPage: false, Color toastColor: RkColors.toastColorInfo}) {
     BotToast.showCustomText(
       crossPage: crossPage,
       onlyOne: true,
@@ -40,7 +40,7 @@ class ToastUtil {
     );
   }
 
-  static void _gsbotBottomToast(String tips, {bool crossPage: false, Color toastColor: RkColors.toastColorInfo}) {
+  static void _showBottomToast(String tips, {bool crossPage: false, Color toastColor: RkColors.toastColorInfo}) {
     BotToast.showCustomText(
       crossPage: crossPage,
       onlyOne: true,
