@@ -10,6 +10,7 @@ export 'package:wanandroid_flutter/generated/l10n.dart';
 export 'dart:io';
 export 'package:flutter/material.dart';
 export 'package:flutter/services.dart';
+export 'src/constant/index.dart';
 
 get statusBarHeight => MediaQueryData.fromWindow(window).padding.top;
 

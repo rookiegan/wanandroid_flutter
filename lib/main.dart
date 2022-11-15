@@ -2,6 +2,7 @@ import 'package:wanandroid_flutter/modules/routers.dart';
 
 import 'dependency.dart';
 import 'modules/_home/home_page.dart';
+import 'modules/splash/splash_view.dart';
 
 void main() {
   _initApp();
@@ -57,8 +58,7 @@ class MyApp extends StatelessWidget {
               // is not restarted.
               primarySwatch: Colors.blue,
             ),
-            // home: MyHomePage(title: 'Flutter Demo Home Page'),
-            home: HomePage(),
+            initialRoute: SplashPage.routeName,
           );
         });
   }
