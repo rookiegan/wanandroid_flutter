@@ -1,4 +1,5 @@
 import '../../dependency.dart';
+import 'float_widget.dart';
 
 class HomePage extends StatefulWidget {
   static final routeName = "/HomePage";
@@ -22,7 +23,7 @@ class _HomePageState extends State<HomePage> {
   final List<BottomNavigationBarItem> _bottomNavBarItems = [
     BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
     BottomNavigationBarItem(icon: Icon(Icons.account_circle_rounded), label: "Tab2"),
-    BottomNavigationBarItem(icon: Icon(Icons.account_balance), label: "Tab3"),
+    BottomNavigationBarItem(icon: Icon(Icons.refresh), label: "Tab3"),
     BottomNavigationBarItem(icon: Icon(Icons.account_balance), label: "Tab4"),
   ];
 
@@ -57,14 +58,17 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget _buildDebugFAB() {
-    return FloatingActionButton(
-      onPressed: () {
-        wanApi.getBannerArticles().asStream().delay(Duration(seconds: 2)).data().loadingDialog().commit((event) {
-          "event=== ${event.length}".d();
-        });
-      },
-      child: const Text("Debug"),
-      tooltip: "Debug",
+    return FloatWidget(
+      child: FloatingActionButton(
+        backgroundColor: Colors.orange,
+        onPressed: () {
+          wanApi.getBannerArticles().asStream().delay(Duration(seconds: 2)).data().loadingDialog().commit((event) {
+            "event=== ${event.length}".d();
+          });
+        },
+        child: const Text("Debug"),
+        tooltip: "Debug",
+      ),
     );
   }
 }
