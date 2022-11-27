@@ -1,3 +1,6 @@
+import 'package:get/get.dart';
+import 'package:wanandroid_flutter/modules/_test/test_index.dart';
+
 import '../../dependency.dart';
 import 'float_widget.dart';
 
@@ -62,9 +65,11 @@ class _HomePageState extends State<HomePage> {
       child: FloatingActionButton(
         backgroundColor: Colors.orange,
         onPressed: () {
-          wanApi.getBannerArticles().asStream().delay(Duration(seconds: 2)).data().loadingDialog().commit((event) {
-            "event=== ${event.length}".d();
-          });
+          Get.toNamed(TestPage.routeName);
+
+          // wanApi.getBannerArticles().asStream().delay(Duration(seconds: 2)).data().loadingDialog().commit((event) {
+          //   "event=== ${event.length}".d();
+          // });
         },
         child: const Text("Debug"),
         tooltip: "Debug",
