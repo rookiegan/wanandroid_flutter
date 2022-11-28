@@ -3,15 +3,16 @@ import 'package:dio_log/overlay_draggable_button.dart';
 import '../../dependency.dart';
 import 'float_widget.dart';
 
-class HomePage extends StatefulWidget {
-  static final routeName = "/HomePage";
+class MainPage extends StatefulWidget {
+  static final routeName = "/MainPage";
 
   @override
-  State<HomePage> createState() {
-    return _HomePageState();
+  State<MainPage> createState() {
+    return _MainPageState();
   }
 }
-class _HomePageState extends State<HomePage> {
+
+class _MainPageState extends State<MainPage> {
   static PageController _pageController = PageController();
   final List<Widget> _bottomNavPages = [
     Container(color: Colors.lightBlue),

@@ -1,7 +1,7 @@
 import 'package:wanandroid_flutter/modules/routers.dart';
 
 import 'dependency.dart';
-import 'modules/_home/home_page.dart';
+import 'modules/_main/main_page.dart';
 import 'modules/splash/splash_view.dart';
 
 void main() {

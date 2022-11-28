@@ -1,7 +1,8 @@
 import 'dart:async';
 
 import 'package:wanandroid_flutter/dependency.dart';
-import 'package:wanandroid_flutter/modules/_home/home_page.dart';
+
+import '../_main/main_page.dart';
 
 class SplashLogic extends GetxController {
   final logoOpacity = 1.0.obs;
@@ -24,7 +25,7 @@ class SplashLogic extends GetxController {
     });
 
     Future.delayed(Duration(seconds: 2)).then((value) {
-      Get.offAllNamed(HomePage.routeName);
+      Get.offAllNamed(MainPage.routeName);
     });
   }
 
