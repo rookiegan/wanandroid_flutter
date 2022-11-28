@@ -11,6 +11,7 @@ export 'dart:io';
 export 'package:flutter/material.dart';
 export 'package:flutter/services.dart';
 export 'src/constant/index.dart';
+export 'src/base/rk_object.dart';
 
 get statusBarHeight => MediaQueryData.fromWindow(window).padding.top;
 

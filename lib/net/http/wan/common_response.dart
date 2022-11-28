@@ -3,16 +3,16 @@ import 'package:json_annotation/json_annotation.dart';
 part 'common_response.g.dart';
 
 @JsonSerializable(genericArgumentFactories: true)
-class CommonResponse<T> {
+class CommonResponse<T> extends Object {
   T data;
   String errorMsg;
   int errorCode;
 
-  CommonResponse(
-    this.data,
-    this.errorMsg,
-    this.errorCode,
-  );
+  CommonResponse({
+    required this.data,
+    this.errorMsg = "",
+    this.errorCode = 0,
+  });
 
   factory CommonResponse.fromJson(
     Map<String, dynamic> json,
@@ -23,6 +23,15 @@ class CommonResponse<T> {
 
   Map<String, dynamic> toJson(Object? Function(T value) toJsonT) {
     return _$CommonResponseToJson<T>(this, toJsonT);
+  }
+
+  @override
+  String toString() {
+    return {
+      "data": data.toString(),
+      "errorMsg": errorMsg,
+      "errorCode": errorCode,
+    }.toString();
   }
 }
 

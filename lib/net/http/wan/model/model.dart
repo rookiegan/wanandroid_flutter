@@ -1,9 +1,10 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:wanandroid_flutter/dependency.dart';
 
 part 'model.g.dart';
 
 @JsonSerializable()
-class BannerData {
+class BannerData extends RkObject {
   final String desc;
   final int id;
   final String imagePath;
@@ -28,13 +29,13 @@ class BannerData {
     return _$BannerDataFromJson(json);
   }
 
-  Map<String, dynamic> toJson(Object Function(BannerData value) toJsonT) {
+  Map<String, dynamic> toJson() {
     return _$BannerDataToJson(this);
   }
 }
 
 @JsonSerializable()
-class ArticleData {
+class ArticleData extends RkObject {
   bool adminAdd;
   String apkLink;
   int audit;
@@ -114,7 +115,7 @@ class ArticleData {
     return _$ArticleDataFromJson(json);
   }
 
-  Map<String, dynamic> toJson(Object Function(ArticleData value) toJsonT) {
+  Map<String, dynamic> toJson() {
     return _$ArticleDataToJson(this);
   }
 }

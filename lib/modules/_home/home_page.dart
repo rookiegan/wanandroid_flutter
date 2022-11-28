@@ -72,6 +72,9 @@ class _HomePageState extends State<HomePage> {
         onPressed: () {
           // Get.toNamed(TestPage.routeName);
 
+          final response = CommonResponse(data: "123", errorMsg: "AAA", errorCode: 200);
+          "response= $response".d();
+
           wanApi.getBannerArticles().asStream().delay(Duration(seconds: 2)).data().loadingDialog().commit((event) {
             "event=== ${event.length}".d();
           });
