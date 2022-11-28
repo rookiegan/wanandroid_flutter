@@ -2,6 +2,7 @@ export 'package:wanandroid_flutter/net/http/wan/common_response.dart';
 
 import 'package:curl_logger_dio_interceptor/curl_logger_dio_interceptor.dart';
 import 'package:dio/adapter.dart';
+import 'package:dio_log/interceptor/dio_log_interceptor.dart';
 import 'package:retrofit/retrofit.dart';
 import 'package:dio/dio.dart';
 import 'package:wanandroid_flutter/net/http/wan/common_response.dart';
@@ -28,6 +29,7 @@ Dio _initDio() {
   dio.interceptors.add(TokenInterceptor());
   dio.interceptors.add(CurlLoggerDioInterceptor(printOnSuccess: true));
   dio.interceptors.add(NetLogInterceptor());
+  dio.interceptors.add(DioLogInterceptor());
   return dio;
 }
 

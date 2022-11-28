@@ -1,5 +1,4 @@
-import 'package:get/get.dart';
-import 'package:wanandroid_flutter/modules/_test/test_index.dart';
+import 'package:dio_log/overlay_draggable_button.dart';
 
 import '../../dependency.dart';
 import 'float_widget.dart';
@@ -29,6 +28,12 @@ class _HomePageState extends State<HomePage> {
     BottomNavigationBarItem(icon: Icon(Icons.refresh), label: "Tab3"),
     BottomNavigationBarItem(icon: Icon(Icons.account_balance), label: "Tab4"),
   ];
+
+  @override
+  void initState() {
+    super.initState();
+    showDebugBtn(context, btnColor: Colors.blue);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -65,11 +70,11 @@ class _HomePageState extends State<HomePage> {
       child: FloatingActionButton(
         backgroundColor: Colors.orange,
         onPressed: () {
-          Get.toNamed(TestPage.routeName);
+          // Get.toNamed(TestPage.routeName);
 
-          // wanApi.getBannerArticles().asStream().delay(Duration(seconds: 2)).data().loadingDialog().commit((event) {
-          //   "event=== ${event.length}".d();
-          // });
+          wanApi.getBannerArticles().asStream().delay(Duration(seconds: 2)).data().loadingDialog().commit((event) {
+            "event=== ${event.length}".d();
+          });
         },
         child: const Text("Debug"),
         tooltip: "Debug",
