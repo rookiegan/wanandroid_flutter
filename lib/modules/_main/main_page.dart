@@ -1,4 +1,5 @@
 import 'package:dio_log/overlay_draggable_button.dart';
+import 'package:wanandroid_flutter/modules/home/home_page.dart';
 
 import '../../dependency.dart';
 import 'float_widget.dart';
@@ -15,7 +16,7 @@ class MainPage extends StatefulWidget {
 class _MainPageState extends State<MainPage> {
   static PageController _pageController = PageController();
   final List<Widget> _bottomNavPages = [
-    Container(color: Colors.lightBlue),
+    HomePage(),
     Container(color: Colors.red),
     Container(color: Colors.yellow),
     Container(color: Colors.green),
@@ -73,8 +74,8 @@ class _MainPageState extends State<MainPage> {
         onPressed: () {
           // Get.toNamed(TestPage.routeName);
 
-          final response = CommonResponse(data: "123", errorMsg: "AAA", errorCode: 200);
-          "response= $response".d();
+          // final response = CommonResponse(data: "123", errorMsg: "AAA", errorCode: 200);
+          // "response= $response".d();
 
           wanApi.getBannerArticles().asStream().delay(Duration(seconds: 2)).data().loadingDialog().commit((event) {
             "event=== ${event.length}".d();
